@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title> Responsive Registration Form | CodingLab </title>
+  <link rel="stylesheet" th:href="@{/style2.css}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="container">
+  <div class="title">Registration</div>
+  <div class="content">
+    <form th:action="@{/students}" method="post" th:object="${student}">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Student ID: </span>
+          <input type="text" id="studentId" th:field="*{studentId}" readonly="readonly"  required>
+        </div>
+        <div class="input-box">
+          <span class="details" for="studentNumber">Student Number:</span>
+          <input type="text" id="studentNumber" th:field="*{studentNumber}" required>
+        </div>
+        <div class="input-box">
+          <span class="details"for="firstName">First Name:</span>
+          <input type="text" id="firstName" th:field="*{firstName}" required>
+        </div>
+        <div class="input-box">
+          <span class="details"for="middleName">Middle Name:</span>
+          <input type="text" id="middleName" th:field="*{middleName}" required>
+        </div>
+        <div class="input-box">
+          <span class="details" for="lastName">Last Name:</span>
+          <input type="text" id="lastName" th:field="*{lastName}" required>
+        </div>
+        <div class="input-box">
+          <span class="details"for="cgpa">CGPA:</span>
+          <input type="text" id="cgpa" th:field="*{cgpa}" required>
+        </div>
+        <div class="input-box">
+          <span class="details"for="dateOfEnrollment">Date of Enrollment:</span>
+          <input type="date"
+                 id="dateOfEnrollment"
+                 th:field="*{dateOfEnrollment}" required>
+        </div>
+      </div>
+      <div class="international-details">
+        <input type="radio" name="international" id="dot-1">
+        <input type="radio" name="international" id="dot-2">
+        <span class="international-title">Gender</span>
+        <div class="category">
+          <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="international">True</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="international">False</span>
+          </label>
+
+        </div>
+      </div>
+      <div class="button">
+        <input type="submit" value="Register">
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+
+<table>
+    <thead>
+    <tr>
+        <th>StudentID</th>
+        <th>Student Number</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>CGPA</th>
+        <th>DateOfEnrollment</th>
+        <th>International Student</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:if="${studentsList.size()==0}">
+        <td colspan="2">No Student available</td>
+    </tr>
+    <tr th:each="student: ${studentsList}">
+        <td>
+            <span th:text="${student.getStudentId()}">StudentID</span>
+        </td>
+
+        <td>
+            <span th:text="${student.getStudentNumber()}">Student Number</span>
+        </td>
+
+        <td>
+            <span th:text="${student.getFirstName()}">First Name</span>
+        </td>
+
+        <td>
+            <span th:text="${student.getMiddleName()}">Middle Name</span>
+        </td>
+
+        <td>
+            <span th:text="${student.getLastName()}">Last Name</span>
+        </td>
+
+        <td>
+            <span th:text="${student.getCgpa()}">CGPA</span>
+        </td>
+
+        <td>
+          <span th:text="${student.getDateOfEnrollment()}"
+          >DateOfEnrollment</span
+          >
+        </td>
+
+        <td>
+          <span th:text="${student.isInternational()}"
+          >International Student</span
+          >
+        </td>
+        <td>
+            <form th:action="@{/students/update/{id}(id=${student.getStudentId()})}" method="GET">
+                <input type="hidden">
+                <button type="submit">Update</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/students/remove/{id}(id=${student.getStudentId()})}" method="post">
+                <input type="hidden"  value="DELETE">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<body></body>
+</html>
